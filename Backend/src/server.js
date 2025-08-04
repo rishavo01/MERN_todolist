@@ -1,12 +1,15 @@
 const express =require("express")
 const notesRouters = require("./routes/notesRoutes")
-const connectDB = require("../config/db.js")
+const connectDB = require("./config/db")
 const dotenv = require("dotenv");
 const app = express();
 
 dotenv.config();
 app.use("/api/notes",notesRouters)
 connectDB();
+
+//middleware
+app.use(express.json());
 
 const PORT = process.env.PORT || 3000;
 
