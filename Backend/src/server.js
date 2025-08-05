@@ -3,10 +3,13 @@ const notesRouters = require("./routes/notesRoutes")
 const connectDB = require("./config/db")
 const dotenv = require("dotenv");
 const app = express();
+app.use(express.json());
+
 
 dotenv.config();
 app.use("/api/notes",notesRouters)
 connectDB();
+
 
 //middleware
 app.use(express.json());
